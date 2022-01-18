@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\SuperHero.Shared.csproj" />
+    <ProjectReference Include="..\Shared\SuperHeroDB.Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-namespace SuperHero.Shared
+namespace SuperHeroDB.Shared
 {
     public class WeatherForecast
     {

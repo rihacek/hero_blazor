@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\SuperHero.Client.csproj" />
-    <ProjectReference Include="..\Shared\SuperHero.Shared.csproj" />
+    <ProjectReference Include="..\Client\SuperHeroDB.Client.csproj" />
+    <ProjectReference Include="..\Shared\SuperHeroDB.Shared.csproj" />
   </ItemGroup>
 
 

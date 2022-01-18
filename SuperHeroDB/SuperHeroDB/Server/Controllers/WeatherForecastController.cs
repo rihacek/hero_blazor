@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using SuperHero.Shared;
+using SuperHeroDB.Shared;
 
-namespace SuperHero.Server.Controllers
+namespace SuperHeroDB.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
