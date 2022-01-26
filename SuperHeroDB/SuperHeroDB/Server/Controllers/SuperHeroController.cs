@@ -33,9 +33,16 @@ namespace SuperHeroDB.Server.Controllers
         {
             var hero = heroes.FirstOrDefault(h => h.Id == id);
             if (hero == null)
-                return NotFound("Super Hero wasn't; found. Too bad. :D");
+                return NotFound("Super Hero not found. Too bad. :D");
 
             return Ok(hero);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateSuperHero(SuperHero hero)
+        {
+            heroes.Add(hero);
+            return Ok(heroes);
         }
     }
 }

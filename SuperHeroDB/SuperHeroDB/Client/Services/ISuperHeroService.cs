@@ -6,6 +6,7 @@ namespace SuperHeroDB.Client.Services
     {
         Task<List<SuperHero>> GetSuperHeroes();
         Task<SuperHero> GetSuperHero(int id);
+        Task<List<SuperHero>> CreateSuperHero(SuperHero hero);
 
     }
 }
