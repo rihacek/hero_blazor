@@ -12,6 +12,6 @@ namespace SuperHeroDB.Shared
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string HeroName { get; set; }
-        public Comic Comic { get; set; }
+        public Comic Comic { get; set; } = new Comic();
     }
 }

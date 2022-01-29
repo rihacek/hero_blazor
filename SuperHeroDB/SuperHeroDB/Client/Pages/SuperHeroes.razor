@@ -34,6 +34,9 @@ else
                     <td>
                         <button class="btn btn-primary" @onclick="(() => EditHero(hero.Id))">Edit</button>
                     </td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="(() => DeleteHero(hero.Id))">Delete</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -59,7 +62,13 @@ else
     void EditHero(int id)
     {
         heroToEdit = SuperHeroService.Heroes.Find(h => h.Id == id);
-        
+
+    }
+
+    void DeleteHero(int id)
+    {
+        SuperHeroService.DeleteSuperHero(id);
+
     }
 
     public void Dispose()

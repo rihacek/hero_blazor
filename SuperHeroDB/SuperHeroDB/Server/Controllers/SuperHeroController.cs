@@ -70,6 +70,18 @@ namespace SuperHeroDB.Server.Controllers
             return Ok(heroes);
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSuperHero(int id)
+        {
+            var dbHero = heroes.FirstOrDefault(h => h.Id == id);
+            if (dbHero == null)
+                return NotFound("Super Hero not found. Too bad. :D");
+
+            heroes.Remove(dbHero);
+
+            return Ok(heroes);
+        }
+
 
     }
 }
