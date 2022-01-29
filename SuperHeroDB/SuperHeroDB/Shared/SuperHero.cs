@@ -8,7 +8,7 @@ namespace SuperHeroDB.Shared
 {
     public class SuperHero
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0; //set default to indicate new vs edit w/o a lookup
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string HeroName { get; set; }

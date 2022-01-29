@@ -1,8 +1,6 @@
 ﻿@inject ISuperHeroService SuperHeroService
 @inject IJSRuntime JSRuntime
 
-<h3>EditSuperHero</h3>
-
 <EditForm Model="Hero" OnSubmit="HandleSubmit">
     @* look at bootstrap form components for more ways to format your forms *@
     <div class="form-group">
@@ -31,6 +29,10 @@
 </EditForm>
 
 @code {
+    //[Parameter]
+    //public SuperHeroDB.Shared.SuperHero HeroToEdit { get; set; }
+
+    [Parameter]
     public SuperHeroDB.Shared.SuperHero Hero { get; set; } = new SuperHeroDB.Shared.SuperHero();
     int comicId = 1;
     protected override async Task OnInitializedAsync()
@@ -40,11 +42,22 @@
 
     async void HandleSubmit()
     {
-        Hero.Comic = SuperHeroService.Comics.FirstOrDefault(c => c.Id == comicId);
-        Console.WriteLine("Submit was called!");
-        JSRuntime.InvokeVoidAsync("console.log", Hero);
 
-        await SuperHeroService.CreateSuperHero(Hero);
+        Hero.Comic = SuperHeroService.Comics.FirstOrDefault(c => c.Id == comicId);
+        //is this a create or an update?  check that zero from the model
+        //todo - would probably use a separate page (off the hero single maybe) 
+        // for updates so that we don't need to distinguish
+        if(Hero.Id == 0) //could also use a flag other than ID, but that sounds stinky to me (technical details within model)
+        {
+            await SuperHeroService.CreateSuperHero(Hero);
+        }
+        else
+        {
+            await SuperHeroService.UpdateSuperHero(Hero, Hero.Id);//don't really need the id parameter here - could just get it from the hero object, but w/e
+        }
+
+        await JSRuntime.InvokeVoidAsync("console.log", Hero);
+
     }
 
 }
